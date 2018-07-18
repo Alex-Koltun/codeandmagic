@@ -1,14 +1,14 @@
 window.renderStatistics = function (ctx, names, times) {
 
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-  ctx.fillRect( 110, 20, 420, 270);
+  ctx.fillStyle = 'rgba (0, 0, 0, 0.7)';
+  ctx.fillRect (110, 20, 420, 270);
   ctx.fillStyle = 'white';
-  ctx.fillRect( 100, 10, 420, 270);
+  ctx.fillRect (100, 10, 420, 270);
 
   ctx.font = '16px PT Mono';
   ctx.fillStyle = 'black';
-  ctx.fillText('Ура вы победили!', 160, 25);
-  ctx.fillText('Список результатов:', 160, 40);
+  ctx.fillText ('Ура вы победили!', 160, 25);
+  ctx.fillText ('Список результатов:', 160, 40);
 
 var max = -1;
 var maxIndex =  -1;
@@ -37,15 +37,15 @@ var initialX = 160;
 ctx.textBaseLine = 'top';
 
 for (var i = 0; i < times.length; i++) {
-  ctx.fillText( Math.round(times[i]) , initialX + indent * i,initialY + times[i] * step +(-1 * barWidth/4 ));
+  ctx.fillText (Math.round(times[i]) , initialX + indent * i,initialY + times[i] * step +(-1 * barWidth/4 ));
   var opacity = Math.random().toFixed(2);
-  ctx.fillStyle = 'rgba(0, 0, 255,' + opacity  + ')' ;
+  ctx.fillStyle = 'rgba (0, 0, 255,' + opacity  + ')' ;
   if (names[i] === 'Вы') {
-    ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+    ctx.fillStyle = 'rgba (255, 0, 0, 1)';
   }
-  ctx.fillRect(initialX + indent * i, initialY, barWidth, times[i] * step);
+  ctx.fillRect (initialX + indent * i, initialY, barWidth, times[i] * step);
 
   ctx.fillStyle = 'black';
-  ctx.fillText(names[i],  initialX + indent * i, initialY + barWidth/2);
+  ctx.fillText (names[i],  initialX + indent * i, initialY + barWidth/2);
   }
 }
