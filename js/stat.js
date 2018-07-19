@@ -28,7 +28,7 @@ var initialX = 160;
 ctx.textBaseLine = 'top';
 for (var i = 0; i < times.length; i++) {
   var coordinateX = initialX + indent * i;
-  var timesCoordinateY = initialY + times[i] * step +(-1 * barWidth/4 );
+  var timesCoordinateY = initialY + times[i] * step +(-1 * barWidth/4);
   ctx.fillText (Math.round(times[i]), coordinateX, timesCoordinateY);
   var opacity = Math.random().toFixed(2);
   ctx.fillStyle = 'rgba (0, 0, 255,' + opacity  + ')' ;
@@ -36,7 +36,7 @@ for (var i = 0; i < times.length; i++) {
     ctx.fillStyle = 'rgba (255, 0, 0, 1)';
   }
   ctx.fillRect (coordinateX, initialY, barWidth, times[i] * step);
-  ctx.fillStyle = 'black';
-  ctx.fillText (names[i],  initialX + indent * i, initialY + barWidth/2);
+  // ctx.fillStyle = 'black';
+  ctx.fillText (names[i], coordinateX, initialY + barWidth/2);
   }
 }
