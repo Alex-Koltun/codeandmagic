@@ -63,7 +63,7 @@
   <div class="demo"></div>
 
   <div class="setup-open">
-    <img src="./img/user-1.jpg" class="setup-open-icon">
+    <img src="./img/user-1.jpg" class="setup-open-icon" tabindex="0">
   </div>
 </header>
 
@@ -71,6 +71,8 @@
   <form class="setup-wizard-form"
         method="post"
         enctype="multipart/form-data"
+        action=' '
+        https://1510.dump.academy/code-and-magick
         autocomplete="off">
 
     <div class="setup-title">
@@ -81,17 +83,20 @@
         </div>
         <label>
           <input type="text" name="username"
+                 minlength="2"
                  maxlength="25" required
                  class="setup-user-name" value="Синий Пендальф"/>
         </label>
       </div>
 
-      <span class="setup-close">&times;</span>
+      <span class="setup-close" tabindex="0">&times;</span>
     </div>
 
 
     <div class="setup-artifacts-shop">
-      <div class="setup-artifacts-cell"><img src="img/icon-star.png" alt="Star" width="65" height="50" draggable="true">
+      <div class="setup-artifacts-cell">
+        <img src="img/icon-star.png" alt="Star" width="65"
+        height="50" draggable="true">
       </div>
       <div class="setup-artifacts-cell"></div>
       <div class="setup-artifacts-cell"></div>
@@ -130,7 +135,9 @@
         <div class="setup-artifacts-cell"></div>
         <div class="setup-artifacts-cell"></div>
 
-        <div class="setup-artifacts-cell"></div>
+        <div
+
+         class="setup-artifacts-cell"></div>
         <div class="setup-artifacts-cell"></div>
         <div class="setup-artifacts-cell"></div>
         <div class="setup-artifacts-cell"></div>
@@ -176,6 +183,7 @@
           <use xlink:href="#wizard-hands" class="wizard-hands"></use>
         </g>
       </svg>
+
     </div>
     <p class="setup-similar-label">Петр Петров</p>
   </div>
@@ -198,6 +206,8 @@
   }
 </script>
 <script src="js/game.js"></script>
+<script src="js/setup.js"></script>
+
 
 </body>
 </html>
