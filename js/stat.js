@@ -49,4 +49,4 @@ for (var i = 0; i < times.length; i++) {
   ctx.fillStyle = 'black';
   ctx.fillText (names[i], coordinateX, initialY + barWidth/2);
   }
-}
+};
