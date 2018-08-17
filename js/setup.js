@@ -8,8 +8,8 @@ window.openCloseSetup = (function(){
   var saveButton = setup.querySelector('.setup-submit');
 
   function openSetupWindow(evt) {
-    setup.style.top =  120 + 'px';
-    setup.style.left =  520 + 'px';
+    setup.style.top =  15 + '%';
+    setup.style.left =  50 + '%';
 
       if ((evt.type === 'keydown' && evt.keyCode === ENTER_KEYCODE) || (evt.type === 'click')) {
         setup.classList.remove('hidden');
@@ -43,6 +43,22 @@ window.openCloseSetup = (function(){
 
 var shopElement = document.querySelector('.setup-artifacts-shop');
 var draggedItem = null;
+function dropFunction (evt) {
+  evt.target.style.backgroundColor = '';
+  evt.target.style.outline = '';
+  evt.target.appendChild(draggedItem);
+  evt.preventDefault();
+};
+function dragenterFunction (evt) {
+  evt.target.style.backgroundColor = 'yellow';
+  evt.target.style.outline = '2px dashed red'
+  evt.preventDefault();
+};
+function dragleaveFunction (evt) {
+  evt.target.style.backgroundColor = '';
+  evt.target.style.outline = '';
+  evt.preventDefault();
+};
 
 shopElement.addEventListener('dragstart', function (evt) {
   if (evt.target.tagName.toLowerCase() === 'img') {
@@ -58,20 +74,7 @@ artifactsElement.addEventListener('dragover', function (evt) {
   return false;
 });
 
-artifactsElement.addEventListener('drop', function (evt) {
-  evt.target.style.backgroundColor = '';
-  evt.target.appendChild(draggedItem);
-  evt.preventDefault();
-});
-
-
-artifactsElement.addEventListener('dragenter', function (evt) {
-  evt.target.style.backgroundColor = 'yellow';
-  evt.preventDefault();
-});
-
-artifactsElement.addEventListener('dragleave', function (evt) {
-  evt.target.style.backgroundColor = '';
-  evt.preventDefault();
-});
+artifactsElement.addEventListener('drop',dropFunction);
+artifactsElement.addEventListener('dragenter',dragenterFunction);
+artifactsElement.addEventListener('dragleave',dragleaveFunction);
 })();
