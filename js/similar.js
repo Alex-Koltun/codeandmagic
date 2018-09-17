@@ -20,7 +20,7 @@
      updateWizards();
    }, 500);
   }
-  
+
   var getRank = function (wizard) {
    var rank = 0;
 

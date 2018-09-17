@@ -1,11 +1,9 @@
 'use strict';
 (function() {
   var setup = document.querySelector('.setup');
-  var dialogHandle = setup.querySelector('.upload');
-  var artifactHandle = setup.querySelector('.setup-artifacts-shop');
+  var dialogHandler = setup.querySelector('.upload');
 
-
-  dialogHandle.addEventListener('mousedown', function (evt) {
+  dialogHandler.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 
     var startCoords = {
@@ -13,9 +11,11 @@
       y: evt.clientY
     };
 
-    var onMouseMove = function (moveEvt) {
+    var dragged = false;
 
+    var onMouseMove = function (moveEvt) {
       moveEvt.preventDefault();
+      dragged = true;
 
       var shift = {
         x: startCoords.x - moveEvt.clientX,
@@ -36,6 +36,14 @@
 
       document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseup', onMouseUp);
+
+      if (dragged) {
+       var onClickPreventDefault = function (evt) {
+         evt.preventDefault();
+         dialogHandler.removeEventListener('click', onClickPreventDefault)
+       };
+       dialogHandler.addEventListener('click', onClickPreventDefault);
+     }
     };
 
     document.addEventListener('mousemove', onMouseMove);

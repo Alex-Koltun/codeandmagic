@@ -1,5 +1,5 @@
 'use strict';
-window.colorizeElement = (function(evtColorize, color){
+window.colorizeElement = (function(evtColorize, color) {
   var userCoat = document.querySelector('.wizard-coat');
   var userEyes = document.querySelector('.wizard-eyes');
   var userFireball = document.querySelector('.setup-fireball');
@@ -24,4 +24,4 @@ window.colorizeElement = (function(evtColorize, color){
     currentElement.style.backgroundColor = currentColor;
     break;
   }
-})
+});
